@@ -1,0 +1,2 @@
+# resident-certificate-online-application
+住民票のオンライン申請を想定したWebアプリ。HTML/CSS/JavaScriptのみで構築し、LocalStorageを利用して申請履歴を管理できるデモシステムです。
