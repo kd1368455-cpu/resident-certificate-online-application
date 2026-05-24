@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>住民票オンライン申請システム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>住民票オンライン申請システム</h1>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>新規申請</h2>
+      <form id="application-form">
+        <div class="form-group">
+          <label for="applicantName">氏名</label>
+          <input type="text" id="applicantName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="address">住所</label>
+          <input type="text" id="address" required>
+        </div>
+
+        <div class="form-group">
+          <label for="certificateType">住民票の種類</label>
+          <select id="certificateType" required>
+            <option value="">選択してください</option>
+            <option value="full">世帯全員</option>
+            <option value="individual">本人のみ</option>
+            <option value="partial">一部（個別指定）</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="copies">通数</label>
+          <input type="number" id="copies" min="1" max="10" value="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="receiveMethod">受取方法</label>
+          <select id="receiveMethod" required>
+            <option value="">選択してください</option>
+            <option value="counter">窓口受取</option>
+            <option value="mail">郵送</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="paymentMethod">支払方法</label>
+          <select id="paymentMethod" required>
+            <option value="">選択してください</option>
+            <option value="revenueStamp">収入印紙</option>
+            <option value="cash">窓口現金</option>
+          </select>
+        </div>
+
+        <div class="form-group readonly">
+          <label>手数料合計</label>
+          <span id="feeDisplay">0 円</span>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="calculateFeeBtn">手数料を計算</button>
+          <button type="submit">申請を登録</button>
+        </div>
+
+        <p id="formError" class="error-message"></p>
+        <p id="formSuccess" class="success-message"></p>
+      </form>
+    </section>
+
+    <section class="list-section">
+      <h2>申請履歴</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>申請番号</th>
+            <th>氏名</th>
+            <th>種類</th>
+            <th>通数</th>
+            <th>受取方法</th>
+            <th>手数料</th>
+            <th>申請日時</th>
+          </tr>
+        </thead>
+        <tbody id="applicationList">
+          <!-- JSで追加 -->
+        </tbody>
+      </table>
+      <button id="clearAllBtn" class="danger">全件削除</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>※本システムは学習用デモです。実際の申請は各自治体の公式サイトをご利用ください。</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
